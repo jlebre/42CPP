@@ -5,16 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jlebre <jlebre@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/04 20:28:04 by jlebre            #+#    #+#              #
-#    Updated: 2023/01/04 20:28:05 by jlebre           ###   ########.fr        #
+#    Created: 2023/01/04 20:28:41 by jlebre            #+#    #+#              #
+#    Updated: 2023/01/04 20:31:07 by jlebre           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = g++
 RM = rm -rf
 CPPFLAGS = -g -Wall -Wextra -Werror -std=c++98
-NAME = Account
-SRC = Account.cpp tests.cpp
+NAME = BraiiiiiiinnnzzzZ
+SRC = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)

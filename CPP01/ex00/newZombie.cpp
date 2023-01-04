@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlebre <jlebre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/04 20:27:52 by jlebre            #+#    #+#             */
-/*   Updated: 2023/01/04 20:27:53 by jlebre           ###   ########.fr       */
+/*   Created: 2023/01/04 20:30:02 by jlebre            #+#    #+#             */
+/*   Updated: 2023/01/04 20:48:34 by jlebre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#include "Zombie.hpp"
 
-# include "Contact.hpp"
-
-class PhoneBook
+Zombie* newZombie(std::string name)
 {
-private:
-	Contact contacts[8];
-public:
-	PhoneBook();
-	~PhoneBook();
-	void    help(int i);
-	int		add(int i);
-	void		search(int i);
-	void	call(int nb);
-};
-
-#endif
+    Zombie novo;
+    std::cout << "Name the Zombie: ";
+    std::getline(std::cin, novo);
+    return (novo);
+}
