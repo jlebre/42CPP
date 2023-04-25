@@ -6,14 +6,14 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 20:27:57 by jlebre            #+#    #+#             */
-/*   Updated: 2023/04/26 00:11:05 by marvin           ###   ########.fr       */
+/*   Updated: 2023/04/26 00:17:38 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
 #include <iostream>
 #include <stdlib.h>
-typedef std::string str;
+#include <iomanip>
 
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
@@ -28,7 +28,14 @@ int Account::checkAmount(void) const {return (Account::_amount);}
 
 void	Account::_displayTimestamp(void)
 {
-	std::cout << "[TIME]";    
+	time_t		currentTime;
+	struct tm	*localTime;
+	char		str[20];
+	
+	time(&currentTime);
+	localTime = localtime(&currentTime);
+	strftime(str, 20, "[%Y%m%d_%H%M%S] ", localTime);
+	std::cout << str;    
 }
 
 Account::Account(int initial_deposit) {
