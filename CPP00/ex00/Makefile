@@ -6,7 +6,7 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/04 20:27:14 by jlebre            #+#    #+#              #
-#    Updated: 2023/04/25 17:15:12 by marvin           ###   ########.fr        #
+#    Updated: 2023/04/25 17:19:15 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,6 @@ RM = rm -rf
 CPPFLAGS = -g -Wall -Wextra -Werror -std=c++98
 NAME = megaphone
 SRC = megaphone.cpp
-OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 

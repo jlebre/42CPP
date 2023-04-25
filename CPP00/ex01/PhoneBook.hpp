@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlebre <jlebre@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 20:27:52 by jlebre            #+#    #+#             */
-/*   Updated: 2023/01/04 20:27:53 by jlebre           ###   ########.fr       */
+/*   Updated: 2023/04/25 19:59:16 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ public:
 	~PhoneBook();
 	void    help(int i);
 	int		add(int i);
-	void		search(int i);
-	void	call(int nb);
+	void	search(int i);
+	int		is_valid(std::string input);
 };
 
 #endif

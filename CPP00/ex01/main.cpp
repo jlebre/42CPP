@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 20:27:39 by jlebre            #+#    #+#             */
-/*   Updated: 2023/04/25 17:16:36 by marvin           ###   ########.fr       */
+/*   Updated: 2023/04/25 20:10:16 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int main()
 	yellowpages.help(1);
 	while (1)
 	{
-		if (last_input.compare("SEARCH"))
-			std::cout << "\033[0;33m" << getenv("USER") << "$ \033[0m";
+		//if (!last_input.compare("SEARCH"))
+		std::cout << "\033[0;33m" << getenv("USER") << "$ \033[0m";
 		if (i <= 8 && len != 8)
 			len = i;
 		if (i == 8)
@@ -36,7 +36,7 @@ int main()
 		else if (!input.compare("SEARCH"))
 		{
 			yellowpages.search(len);
-			input = "SEARCH";
+			last_input = "SEARCH";
 		}
 		else if (!input.compare("EXIT"))
 			break ;

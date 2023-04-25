@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlebre <jlebre@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 20:27:48 by jlebre            #+#    #+#             */
-/*   Updated: 2023/01/04 20:27:49 by jlebre           ###   ########.fr       */
+/*   Updated: 2023/04/25 20:10:44 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,25 +38,21 @@ int	PhoneBook::add(int i)
 	return (1);
 }
 
-void	PhoneBook::call(int nb)
+int PhoneBook::is_valid(std::string input)
 {
-	int	index;
-	std::string full_name;
-
-	std::cout << "Whom do you wanna call?\n";
-	PhoneBook::search(nb);
-	std::cin >> index;
-	if (index < 0 || index > 8)
-		return ;
-	full_name = PhoneBook::contacts[index].first_name + " " + PhoneBook::contacts[index].last_name;
-	std::cout << "Calling " << full_name << "...";
-	system("paplay call.ogg");
+	if (input.length() > 1)
+		return (0);
+	if (input[0] < '1' || input[0] > '8')
+		return (0);
+	return (1);
 }
 
 void	PhoneBook::search(int i)
 {
 	int	id = 0;
 	int	index;
+	std::string input;
+	int	valid = 0;
 	if (i == 0)
 	{
 		std::cout << "No Contacts!\n";
@@ -70,14 +66,18 @@ void	PhoneBook::search(int i)
 		id++;
 	}
 	std::cout << "|__________|__________|__________|__________|\n";
-	std::cout << "\nChoose a contact:\n";
-	std::cin >> index;
-	std::cout << "\n";
-	if (index < 0 || index > 8 || index > i)
+	std::cout << "\nChoose a contact ID:\n";
+	while (!valid)
 	{
-		std::cout << "Invalid input!\n";
-		return ;
+		std::getline(std::cin, input);
+		if (!input.compare(""))
+			return ;
+		valid = PhoneBook::is_valid(input);
+		if (!valid)
+			std::cout << "\033[0;31mInvalid Input!\033[0m\n";
 	}
+	index = input[0] - 48;
+	std::cout << "\n";
 	PhoneBook::contacts[index - 1].print_info();
 	return ;
 }
