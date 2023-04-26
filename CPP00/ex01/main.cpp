@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 20:27:39 by jlebre            #+#    #+#             */
-/*   Updated: 2023/04/25 20:11:57 by marvin           ###   ########.fr       */
+/*   Updated: 2023/04/26 16:10:07 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int main()
 		if (i == 8)
 			i = 0;
 		std::getline(std::cin, input);
+		if (std::cin.eof())
+			return (0);
 		last_input = input;
 		if (!input.compare("ADD"))
 			i += yellowpages.add(i);

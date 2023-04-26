@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 20:27:48 by jlebre            #+#    #+#             */
-/*   Updated: 2023/04/25 20:10:44 by marvin           ###   ########.fr       */
+/*   Updated: 2023/04/26 16:11:23 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ void	PhoneBook::search(int i)
 		valid = PhoneBook::is_valid(input);
 		if (!valid)
 			std::cout << "\033[0;31mInvalid Input!\033[0m\n";
+		if (std::cin.eof())
+			return ;
 	}
 	index = input[0] - 48;
 	std::cout << "\n";

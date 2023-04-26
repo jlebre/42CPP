@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlebre <jlebre@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 20:27:30 by jlebre            #+#    #+#             */
-/*   Updated: 2023/01/04 20:27:31 by jlebre           ###   ########.fr       */
+/*   Updated: 2023/04/26 16:12:22 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,23 +74,23 @@ int	Contact::new_contact()
 {
 	std::cout << "First Name: ";
 	std::getline(std::cin, Contact::first_name);
-	if (!check_if_empty(Contact::first_name))
+	if (!check_if_empty(Contact::first_name) || std::cin.eof())
 		return (0);
 	std::cout << "Last Name: ";
 	std::getline(std::cin, Contact::last_name);
-	if (!check_if_empty(Contact::last_name))
+	if (!check_if_empty(Contact::last_name) || std::cin.eof())
 		return (0);
 	std::cout << "Nickame: ";
 	std::getline(std::cin, Contact::nickname);
-	if (!check_if_empty(Contact::nickname))
+	if (!check_if_empty(Contact::nickname) || std::cin.eof())
 		return (0);
 	std::cout << "Phone Number: ";
 	std::getline(std::cin, Contact::phone_number);
-	if (!check_if_empty(Contact::phone_number))
+	if (!check_if_empty(Contact::phone_number) || std::cin.eof())
 		return (0);
 	std::cout << "Secret: ";
 	std::getline(std::cin, Contact::secret);
-	if (!check_if_empty(Contact::secret))
+	if (!check_if_empty(Contact::secret) || std::cin.eof())
 		return (0);
 	return (1);
 }
