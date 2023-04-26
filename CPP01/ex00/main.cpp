@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlebre <jlebre@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 20:28:44 by jlebre            #+#    #+#             */
-/*   Updated: 2023/01/04 20:29:30 by jlebre           ###   ########.fr       */
+/*   Updated: 2023/04/26 02:44:28 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int main()
 {
-
-    return (0);
+    Zombie *Brain_Eater = newZombie("McBrainz");
+    randomChump("HalfDead");
+    delete Brain_Eater;
 }

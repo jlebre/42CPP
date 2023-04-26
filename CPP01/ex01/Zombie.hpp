@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 20:28:37 by jlebre            #+#    #+#             */
-/*   Updated: 2023/04/26 02:49:42 by marvin           ###   ########.fr       */
+/*   Updated: 2023/04/26 03:52:56 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ class Zombie
 		std::string name;
 
 	public:
-		Zombie(std::string name);
+		Zombie();
 		~Zombie();
 		void	announce(void);
+		void	name_it(std::string name);
 };
 
-Zombie	*newZombie(std::string name);
-void randomChump(std::string name);
+Zombie *zombieHorde(int N, std::string name);
 
 #endif

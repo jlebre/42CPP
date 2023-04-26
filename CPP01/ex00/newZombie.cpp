@@ -3,19 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlebre <jlebre@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 20:30:02 by jlebre            #+#    #+#             */
-/*   Updated: 2023/01/04 20:48:34 by jlebre           ###   ########.fr       */
+/*   Updated: 2023/04/26 02:42:05 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie* newZombie(std::string name)
+Zombie	*newZombie(std::string name)
 {
-    Zombie novo;
-    std::cout << "Name the Zombie: ";
-    std::getline(std::cin, novo);
-    return (novo);
+	return (new Zombie(name));
 }
