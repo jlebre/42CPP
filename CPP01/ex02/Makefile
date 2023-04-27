@@ -1,7 +1,7 @@
 CC = g++
 RM = rm -f
-CFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = Meggy
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+NAME = hi_this_is_brain
 SRC = main.cpp
 
 all: $(NAME)
@@ -13,11 +13,15 @@ clean:
 
 fclean:
 	@$(RM) $(NAME)
-	echo "Meggy Removed!"
+	echo "hi_this_is_brain Removed!"
+
+re:
+	@make fclean
+	@make
 
 a:
 	@make fclean
 	@make
-	@./Meggy
+	@./hi_this_is_brain
 
-.PHONY: all clean fclean a
+.PHONY: all clean fclean re a
