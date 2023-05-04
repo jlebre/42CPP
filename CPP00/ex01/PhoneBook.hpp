@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 20:27:52 by jlebre            #+#    #+#             */
-/*   Updated: 2023/04/25 19:59:16 by marvin           ###   ########.fr       */
+/*   Updated: 2023/05/04 17:56:15 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public:
 	void    help(int i);
 	int		add(int i);
 	void	search(int i);
-	int		is_valid(std::string input);
+	int		is_valid(std::string input, int i);
 };
 
 #endif

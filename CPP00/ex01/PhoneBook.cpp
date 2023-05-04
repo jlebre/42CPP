@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 20:27:48 by jlebre            #+#    #+#             */
-/*   Updated: 2023/04/26 16:11:23 by marvin           ###   ########.fr       */
+/*   Updated: 2023/05/04 18:06:29 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,17 @@ int	PhoneBook::add(int i)
 	std::cout << "\n\033[1;32m";
 	std::cout << PhoneBook::contacts[i].first_name + " " + PhoneBook::contacts[i].last_name;
 	std::cout << " Sucessfully Created!\033[0m\n";
-	PhoneBook::contacts[i].print_info();
 	std::cout << "\n";
 	return (1);
 }
 
-int PhoneBook::is_valid(std::string input)
+int PhoneBook::is_valid(std::string input, int i)
 {
 	if (input.length() > 1)
 		return (0);
 	if (input[0] < '1' || input[0] > '8')
+		return (0);
+	if ((input[0] - 48) > i)
 		return (0);
 	return (1);
 }
@@ -72,7 +73,7 @@ void	PhoneBook::search(int i)
 		std::getline(std::cin, input);
 		if (!input.compare(""))
 			return ;
-		valid = PhoneBook::is_valid(input);
+		valid = PhoneBook::is_valid(input, i);
 		if (!valid)
 			std::cout << "\033[0;31mInvalid Input!\033[0m\n";
 		if (std::cin.eof())

@@ -6,7 +6,7 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/04 20:27:43 by jlebre            #+#    #+#              #
-#    Updated: 2023/04/25 20:17:44 by marvin           ###   ########.fr        #
+#    Updated: 2023/05/04 18:01:07 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,6 @@ clean:
 
 fclean:
 	@$(RM) $(NAME)
-	echo "\033[0;31mMegaphone Removed!\033[0m"
 
 a:
 	@make fclean

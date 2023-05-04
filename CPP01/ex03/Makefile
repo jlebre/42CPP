@@ -11,11 +11,14 @@ SRCS = $(addprefix $(SRCS_DIR)/, $(FILE_NAME))
 OBJS = $(subst $(SRCS_DIR), $(OBJS_DIR), $(SRCS:.cpp=.o))
 
 OBJS_DIR = objs
+
 CC = g++
 
-RM = rm -f
+INC = -I includes
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror $(INC) -std=c++98
+
+RM = rm -f
 
 NAME = unnecessary_violence
 
@@ -26,15 +29,15 @@ $(OBJS_DIR)/%.o :	$(SRCS_DIR)/%.cpp
 	@$(CC) $(CPPFLAGS) -O3 -c $< -o $@
 
 $(NAME):
-	@$(CC) $(CPPFLAGS) $(SRC) -o $(NAME)
-	echo -e 'unnecessary_violence Compiled!'
+	@$(CC) $(CPPFLAGS) $(SRCS) -o $(NAME)
+	@echo -e '[0;32m unnecessary_violence Compiled![0m'
 
 clean:
 	@$(RM) $(OBJS_DIR)
 
 fclean: clean
 	@$(RM) $(NAME)
-	echo -e 'unnecessary_violence Removed!'
+	@echo -e '[0;31m unnecessary_violence Removed![0m'
 
 re:
 	@make fclean

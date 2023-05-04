@@ -9,8 +9,10 @@ class Weapon
         std::string type;
     
     public:
-        int &getType();
-        void    setType(td::string type);
+        Weapon(std::string type);
+        ~Weapon();
+        void    getType();
+        void    setType(std::string arma);
 };
 
 #endif
