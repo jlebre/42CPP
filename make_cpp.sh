@@ -113,14 +113,14 @@ create_makefile()
     echo >> Makefile
     echo '$(NAME):' >> Makefile
     echo -e "\t"@'$(CC)' '$(CPPFLAGS)' '$(SRCS)' -o '$(NAME)' >> Makefile
-    echo -e '\t@echo -e '"'"'\033[0;32m' $NAME 'Compiled!\033[0m'"'" >> Makefile
+    echo -e '\t@echo -e '"'"'\033[0;32m'$NAME 'Compiled!\033[0m'"'" >> Makefile
     echo >> Makefile
     echo clean: >> Makefile
     echo -e '\t@$(RM) $(OBJS_DIR)' >> Makefile
     echo >> Makefile
     echo fclean: clean >> Makefile
     echo -e '\t@$(RM) $(NAME)' >> Makefile
-    echo -e '\t@echo -e '"'"'\033[0;31m' $NAME 'Removed!\033[0m'"'" >> Makefile
+    echo -e '\t@echo -e '"'"'\033[0;31m'$NAME 'Removed!\033[0m'"'" >> Makefile
     echo >> Makefile
     echo re: >> Makefile
     echo -e '\t@make fclean' >> Makefile
