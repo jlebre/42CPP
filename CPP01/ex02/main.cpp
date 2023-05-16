@@ -2,7 +2,6 @@
 
 int main()
 {
-    
     std::string str = "HI THIS IS BRAIN"; // Initialize a string variable to "HI THIS IS BRAIN"
     std::string *stringPTR = &str; // stringPTR: A pointer to the string
     std::string &stringREF = str; // stringREF: A reference to the string

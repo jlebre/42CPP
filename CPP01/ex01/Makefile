@@ -1,35 +1,50 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/04 20:28:41 by jlebre            #+#    #+#              #
-#    Updated: 2023/04/26 03:46:34 by marvin           ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+FILE_NAME = \
+			main.cpp \
+			Zombie.cpp \
+			ZombieHorde.cpp \
+
+SRCS_DIR = srcs
+
+SRCS = $(addprefix $(SRCS_DIR)/, $(FILE_NAME))
+
+OBJS = $(subst $(SRCS_DIR), $(OBJS_DIR), $(SRCS:.cpp=.o))
+
+OBJS_DIR = objs
 
 CC = g++
-RM = rm -rf
-CPPFLAGS = -g -Wall -Wextra -Werror -std=c++98
+
+INC = -I includes
+
+CPPFLAGS = -Wall -Wextra -Werror $(INC) -std=c++98
+
+RM = rm -f
+
 NAME = MoarBrainz
-SRC = main.cpp Zombie.cpp ZombieHorde.cpp
 
 all: $(NAME)
 
-$(NAME): 
-	@$(CC) $(CPPFLAGS) $(SRC) -o $(NAME)
+$(OBJS_DIR)/%.o :	$(SRCS_DIR)/%.cpp
+	@mkdir -p $(@D)
+	@$(CC) $(CPPFLAGS) -O3 -c $< -o $@
+
+$(NAME):
+	@$(CC) $(CPPFLAGS) $(SRCS) -o $(NAME)
+	@echo -e '[0;32mMoarBrainz Compiled![0m'
 
 clean:
+	@$(RM) $(OBJS_DIR)
 
-fclean: 
+fclean: clean
 	@$(RM) $(NAME)
-	echo "\033[0;31mMoarBrainz Removed!\033[0m"
+	@echo -e '[0;31mMoarBrainz Removed![0m'
 
-a:
+re:
 	@make fclean
 	@make
+
+a:
+	@make re
+	@make clean
 	@./MoarBrainz
 
-.PHONY: all clean fclean a
+.PHONY: all clean fclean re a
