@@ -1,8 +1,8 @@
 FILE_NAME = \
 			HumanA.cpp \
 			HumanB.cpp \
-			Weapon.cpp \
 			main.cpp \
+			Weapon.cpp \
 
 SRCS_DIR = srcs
 
@@ -30,14 +30,14 @@ $(OBJS_DIR)/%.o :	$(SRCS_DIR)/%.cpp
 
 $(NAME):
 	@$(CC) $(CPPFLAGS) $(SRCS) -o $(NAME)
-	@echo -e '[0;32m unnecessary_violence Compiled![0m'
+	@echo -e '[0;32munnecessary_violence Compiled![0m'
 
 clean:
 	@$(RM) $(OBJS_DIR)
 
 fclean: clean
 	@$(RM) $(NAME)
-	@echo -e '[0;31m unnecessary_violence Removed![0m'
+	@echo -e '[0;31munnecessary_violence Removed![0m'
 
 re:
 	@make fclean

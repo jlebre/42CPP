@@ -13,7 +13,7 @@ clean:
 
 fclean:
 	@$(RM) $(NAME)
-	echo "hi_this_is_brain Removed!"
+	@echo "hi_this_is_brain Removed!"
 
 re:
 	@make fclean

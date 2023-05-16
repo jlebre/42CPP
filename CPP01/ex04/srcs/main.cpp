@@ -14,7 +14,7 @@ char *str2chr(std::string str)
     for (int i = 0; i < len; i++)
         new_str[i] = str[i];
     return new_str;
-    //  Dont forget to use delete [] as it is maually allocated
+    //  Cant forget to use delete [] as it is maually allocated
 }
 
 char    *getFileName(char *name)

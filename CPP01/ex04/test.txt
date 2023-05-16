@@ -1,13 +1,6 @@
-This is a test!
-By opening this it will replace every occurence of str1 by string 2 and create a new file.
-
-
-
-test
-and
-train
-phone
-whaaaaaat
-...
-
-boring
+hello
+hello
+aaaaaaahelloaaaaaa
+hellohellohello
+hello hello hello
+hell o
