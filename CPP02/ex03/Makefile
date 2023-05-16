@@ -1,8 +1,8 @@
 FILE_NAME = \
-			Zombie.cpp \
+			Fixed.cpp \
+			Point.cpp \
+			bsp.cpp \
 			main.cpp \
-			newZombie.cpp \
-			randomChump.cpp \
 
 SRCS_DIR = srcs
 
@@ -20,7 +20,7 @@ CPPFLAGS = -Wall -Wextra -Werror $(INC) -std=c++98
 
 RM = rm -f
 
-NAME = BraiiiiiiinnnzzzZ
+NAME = ex03
 
 all: $(NAME)
 
@@ -30,14 +30,14 @@ $(OBJS_DIR)/%.o :	$(SRCS_DIR)/%.cpp
 
 $(NAME):
 	@$(CC) $(CPPFLAGS) $(SRCS) -o $(NAME)
-	@echo -e '[0;32mBraiiiiiiinnnzzzZ Compiled![0m'
+	@echo -e '[0;32mex03 Compiled![0m'
 
 clean:
 	@$(RM) $(OBJS_DIR)
 
 fclean: clean
 	@$(RM) $(NAME)
-	@echo -e '[0;31mBraiiiiiiinnnzzzZ Removed![0m'
+	@echo -e '[0;31mex03 Removed![0m'
 
 re:
 	@make fclean
@@ -46,6 +46,6 @@ re:
 a:
 	@make re
 	@make clean
-	@./BraiiiiiiinnnzzzZ
+	@./ex03
 
 .PHONY: all clean fclean re a
