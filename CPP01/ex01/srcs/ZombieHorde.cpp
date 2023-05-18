@@ -15,6 +15,12 @@
 Zombie *zombieHorde(int N, std::string name)
 {
     int i = 0;
+    if (N > 100)
+    {
+        std::cerr << "Too many Zombies in your Horde\n";
+        std::cerr << "Allocating 100 Zombies\n";
+        N = 100;
+    }
     Zombie *Horde = new Zombie[N];
     while (i < N)
     {

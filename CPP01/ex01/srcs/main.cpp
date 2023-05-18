@@ -14,7 +14,11 @@
 
 int main()
 {
-    Zombie *Horde = zombieHorde(5, "AAA");
-    delete[] Horde;
+    Zombie *Horde = zombieHorde(500000000, "HORDE");
+    if (Horde)
+        delete[] Horde;
+    Zombie *NewHorde = zombieHorde(3, "NEW");
+    if (NewHorde)
+        delete[] NewHorde;
     return (0);
 }

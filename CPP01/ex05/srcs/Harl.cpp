@@ -31,14 +31,15 @@ void    Harl::error()
 // Cant do it with if else
 void    Harl::complain(std::string level)
 {
-    if (level == "DEBUG")
-        this->debug();
-    else if (level == "INFO")
-        this->info();
-    else if (level == "WARNING")
-        this->warning();
-    else if (level == "ERROR")
-        this->error();
-    else
-        std::cout << "\033[0;31m[   ]\033[0m\nComplaining about something...\n";
+    void (Harl::*comp[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+    std::string error[4] = {"debug", "info", "warning", "error"};
+    for (int i = 0; i < 4; i++)
+    {
+        if (error[i] == level)
+        {
+            (this->*(comp[i]))();
+            return ;
+        }
+    }
+    std::cout << "\033[0;31m[   ]\033[0m\nComplaining about something...\n";
 }

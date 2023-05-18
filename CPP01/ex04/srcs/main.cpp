@@ -71,6 +71,7 @@ std::string check_line(std::string line, std::string str1, std::string str2, int
                 line = ft_replace(line, i - check, check, str2);
                 *counter += 1;
             }
+            i -= ((int)str1.length() - (int)str2.length());
         }
         else
             i++;
