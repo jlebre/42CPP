@@ -2,6 +2,7 @@
 # define FIXED_HPP
 
 # include <iostream>
+# include <cmath>
 
 class Fixed
 {
@@ -13,10 +14,14 @@ class Fixed
         Fixed( void );    // Default constructor
         Fixed( const Fixed& copy );   // Copy Constructor
         // (..) Other Constructors
+        Fixed( const int i ); 
+        Fixed( const float f );   
         ~Fixed(); // Destructor
         Fixed &operator = ( const Fixed &copy ); // Assignment
         int     getRawBits( void ) const;
         void    setRawBits( int const raw );
+        float   toFloat( void ) const;
+        int     toInt( void ) const;
 };
 
 #endif
