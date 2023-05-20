@@ -18,7 +18,7 @@ CPPFLAGS = -Wall -Wextra -Werror $(INC) -std=c++98
 
 RM = rm -f
 
-NAME = occf
+NAME = usefull
 
 all: $(NAME)
 
@@ -28,14 +28,14 @@ $(OBJS_DIR)/%.o :	$(SRCS_DIR)/%.cpp
 
 $(NAME):
 	@$(CC) $(CPPFLAGS) $(SRCS) -o $(NAME)
-	@echo -e '[0;32moccf Compiled![0m'
+	@echo -e '[0;32musefull Compiled![0m'
 
 clean:
 	@$(RM) $(OBJS_DIR)
 
 fclean: clean
 	@$(RM) $(NAME)
-	@echo -e '[0;31moccf Removed![0m'
+	@echo -e '[0;31musefull Removed![0m'
 
 re:
 	@make fclean
@@ -44,6 +44,6 @@ re:
 a:
 	@make re
 	@make clean
-	@./occf
+	@./usefull
 
 .PHONY: all clean fclean re a
