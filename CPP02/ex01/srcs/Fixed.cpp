@@ -14,12 +14,15 @@ Fixed::Fixed(const Fixed &copy)
 
 Fixed::Fixed(int i)
 {
-    std::Cout << "Int constructor called\n";
+    std::cout << "Int constructor called\n";
+    this->_fixed_value = i * 1.0;
 }
 
 Fixed::Fixed(float f)
 {
     std::cout << "Float constructor called\n";
+    this->_fixed_value = (roundf(f * (1 << this->_fractional_bits)));
+
 }
 
 void    Fixed::operator=(const Fixed &copy)
@@ -44,12 +47,14 @@ void    Fixed::setRawBits( int const raw )
     this->_fixed_value = raw;
 }
 
-float Fixed::toFloat( void )
+float Fixed::toFloat( void ) const
 {
     std::cout << "ToFloat\n";
+    return ((float)this->_fixed_value / (float)(1 << this->_fractional_bits));
 }
 
-int Fixed::toInt( void )
+int Fixed::toInt( void ) const
 {
     std::cout << "ToInt\n";
+    return (roundf(this->_fixed_value));
 }
