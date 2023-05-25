@@ -1,8 +1,7 @@
 FILE_NAME = \
 			Fixed.cpp \
-			Point.cpp \
-			bsp.cpp \
 			main.cpp \
+			Point.cpp \
 
 SRCS_DIR = srcs
 
@@ -20,7 +19,7 @@ CPPFLAGS = -Wall -Wextra -Werror $(INC) -std=c++98
 
 RM = rm -f
 
-NAME = ex03
+NAME = bsp
 
 all: $(NAME)
 
@@ -30,14 +29,14 @@ $(OBJS_DIR)/%.o :	$(SRCS_DIR)/%.cpp
 
 $(NAME):
 	@$(CC) $(CPPFLAGS) $(SRCS) -o $(NAME)
-	@echo -e '[0;32mex03 Compiled![0m'
+	@echo -e '[0;32mbsp Compiled![0m'
 
 clean:
 	@$(RM) $(OBJS_DIR)
 
 fclean: clean
 	@$(RM) $(NAME)
-	@echo -e '[0;31mex03 Removed![0m'
+	@echo -e '[0;31mbsp Removed![0m'
 
 re:
 	@make fclean
@@ -46,6 +45,6 @@ re:
 a:
 	@make re
 	@make clean
-	@./ex03
+	@./bsp
 
 .PHONY: all clean fclean re a
