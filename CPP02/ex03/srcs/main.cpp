@@ -6,7 +6,7 @@ int main ( void )
 	Point P1( 6.0f, 4.0f );
 	Point A( 1.0f, 1.0f );
 	Point B( 5.0f, 5.0f );
-	Point C( 10.0f, 10.0f );
+	Point C( 10.0f, 1.0f );
 
 	std::cout << "Testing inside of triangle\n";
 	std::cout << "The vertices are: ";
