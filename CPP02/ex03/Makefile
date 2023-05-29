@@ -2,6 +2,7 @@ FILE_NAME = \
 			Fixed.cpp \
 			main.cpp \
 			Point.cpp \
+			bsp.cpp
 
 SRCS_DIR = srcs
 
@@ -27,7 +28,7 @@ $(OBJS_DIR)/%.o :	$(SRCS_DIR)/%.cpp
 	@mkdir -p $(@D)
 	@$(CC) $(CPPFLAGS) -O3 -c $< -o $@
 
-$(NAME):
+$(NAME): $(SRCS)
 	@$(CC) $(CPPFLAGS) $(SRCS) -o $(NAME)
 	@echo -e '[0;32mbsp Compiled![0m'
 
