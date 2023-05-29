@@ -1,45 +1,46 @@
 #include "Point.hpp"
 
+
+/*
+    O problema está no = operator
+*/
+
 Point::Point()
 {
-    Point::x = Fixed(0);
-    Point::y = Fixed(0);
+    this->_x = 0;
+    this->_y = 0;
 }
 
 Point::Point( float x1, float y1)
 {
-    Point::x = Fixed(x1);
-    Point::y = Fixed(y1);
+    Fixed a(x1);
+    Fixed b(y1);
+
+    _x = a;
+    _y = b;
 }
 
 Point::Point( const Point &copy )
 {
-
+    this->_x = copy.getX();
+    this->_y = copy.getY();
 }
 
 void	Point::operator=( const Point &copy )
 {
-
+    this->_x = copy.getX();
+    this->_y = copy.getY();
+    return *this;
 }
 
 Point::~Point(){}
 
-float   Fixed::sign( Point const p1, Point const p2, Point const p3 )
+Fixed   &Point::getX()
 {
-    return (p1.x - p3.x) * (p2.y - p3.y) - (p2.x - p3.x) * (p1.y - p3.y);
+    return _x;
 }
 
-bool Point::bsp( Point const a, Point const b, Point const c, Point const point )
+Fixed   &Point::getY()
 {
-    float   d1, d2, d3;
-    bool    has_neg, has_pos;
-
-    d1 = sign(point, a, b);
-    d2 = sign(point, b, c);
-    d3 = sign(point, c, a);
-
-    has_neg = (d1 < 0) || (d2 < 0) || (d3 < 0);
-    has_pos = (d1 > 0) || (d2 > 0) || (d3 > 0);
-
-    return !(has_neg && has_pos);
+    return _y;
 }
