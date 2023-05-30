@@ -23,6 +23,13 @@ struct s_global
 	t_img	*screen;
 	int		width;
 	int		height;
+	int		max_h;
+	int		max_w;
+	int		range_h;
+	int		range_w;
+	int		check;
+	int		min_h;
+	int		min_w;
 	t_point	V1;
 	t_point	V2;
 	t_point	V3;
