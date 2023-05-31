@@ -139,9 +139,9 @@ void	draw()
 	draw_square(vars(), (vars()->V2.x - vars()->min_w) * 50 + 16, ((vars()->height - (vars()->V2.y - vars()->min_h) * 50 - 32)), 0xFFFFFF);
 	draw_square(vars(), (vars()->V3.x - vars()->min_w) * 50 + 16, ((vars()->height - (vars()->V3.y - vars()->min_h) * 50 - 32)), 0xFFFFFF);
 	if (vars()->check)
-		draw_square(vars(), (vars()->PT.x - vars()->min_w) * 50 + 16, (vars()->PT.y - vars()->min_h) * 50 + 16, 0x00FF00);
+		draw_square(vars(), (vars()->PT.x - vars()->min_w) * 50 + 16, vars()->height - (vars()->PT.y - vars()->min_h) * 50 - 32, 0x00FF00);
 	else
-		draw_square(vars(), (vars()->PT.x - vars()->min_w) * 50 + 16, (vars()->PT.y - vars()->min_h) * 50 + 16, 0xFF0000);
+		draw_square(vars(), (vars()->PT.x - vars()->min_w) * 50 + 16, vars()->height - (vars()->PT.y - vars()->min_h) * 50 - 32, 0xFF0000);
 	mlx_put_image_to_window(vars()->mlx, vars()->mlx_win, vars()->screen, 0, 0);
 }
 

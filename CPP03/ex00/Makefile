@@ -1,5 +1,5 @@
 FILE_NAME = \
-			Claptrap.cpp \
+			ClapTrap.cpp \
 			main.cpp \
 
 SRCS_DIR = srcs
