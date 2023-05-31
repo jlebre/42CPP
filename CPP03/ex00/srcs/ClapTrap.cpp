@@ -6,6 +6,8 @@ ClapTrap::ClapTrap(std::string name)
     _hit = 10;
     _energy = 10;
     _attack = 0;
+
+    std::cout << "Constructor called\n";
 }
 
 ClapTrap::ClapTrap( const ClapTrap &copy ){ ( void )copy; }
@@ -19,7 +21,7 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &obj)
     return *this;
 }
 
-ClapTrap::~ClapTrap(){}
+ClapTrap::~ClapTrap() { std::cout << "Destructor called\n"; }
 
 void    ClapTrap::setName(std::string name)
 {
