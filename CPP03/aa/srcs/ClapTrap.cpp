@@ -1,6 +1,11 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(const std::string name)
+ClapTrap::ClapTrap()
+{
+	std::cout << "Default Constructor called!\n";
+}
+
+ClapTrap::ClapTrap( const std::string name )
 {
 	_name = name;
 	_hit = 10;
@@ -15,7 +20,7 @@ ClapTrap::ClapTrap( const ClapTrap &copy )
 	std::cout << "Copy constructor called!\n";
 }
 
-ClapTrap	&ClapTrap::operator=(const ClapTrap &obj)
+ClapTrap	&ClapTrap::operator=( const ClapTrap &obj )
 {
 	this->_name = obj._name;
 	this->_hit = obj._hit;

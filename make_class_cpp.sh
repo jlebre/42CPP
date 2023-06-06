@@ -44,10 +44,10 @@ create_new()
 		echo "	private":>> $FILE_HPP
 		echo >> $FILE_HPP
 		echo "	public:" >> $FILE_HPP
-		echo "		$CLASS(void);   " >> $FILE_HPP
-		echo "		$CLASS(const $CLASS& copy);  " >> $FILE_HPP
+		echo "		$CLASS( void );   " >> $FILE_HPP
+		echo "		$CLASS( const $CLASS &copy );  " >> $FILE_HPP
 		echo "		~$CLASS();" >> $FILE_HPP
-		echo "		$CLASS& operator = ( const $CLASS&);" >> $FILE_HPP
+		echo "		$CLASS &operator = ( const $CLASS &obj );" >> $FILE_HPP
 		echo "};" >> $FILE_HPP
 		echo >> $FILE_HPP
 		echo "#endif" >> $FILE_HPP
@@ -57,13 +57,29 @@ create_new()
 		touch $FILE_CPP
 		echo "#include \"$FILE_HPP\"" >> $FILE_CPP
 		echo >> $FILE_CPP
-		echo "$CLASS::$CLASS(){}" >> $FILE_CPP
+		echo "$CLASS::$CLASS()" >> $FILE_CPP
+		echo "{" >> $FILE_CPP
+		echo -e "\tstd::cout << \"Constructor Called\\n\";" >> $FILE_CPP
+		echo "}" >> $FILE_CPP
 		echo >> $FILE_CPP
-		echo "$CLASS::$CLASS( const $CLASS &copy ){ ( void )copy; }" >> $FILE_CPP
+		echo "$CLASS::$CLASS( const $CLASS &copy )" >> $FILE_CPP
+		echo "{" >> $FILE_CPP
+		echo -e "\t*this = copy;" >> $FILE_CPP
+		echo -e "\tstd::cout << \"Copy constructor called!\\n\";" >> $FILE_CPP
+		echo "}" >> $FILE_CPP
 		echo >> $FILE_CPP
-		echo "void	$CLASS::operator=(const $CLASS &copy){ ( void )copy; }" >> $FILE_CPP
+		echo "$CLASS	&$CLASS::operator=( const $CLASS &obj )" >> $FILE_CPP
+		echo "{" >> $FILE_CPP
+		echo -e "\t( void )obj;" >> $FILE_CPP
+		echo -e "\tstd::cout << \"Copy assignment operator called!\\n\";" >> $FILE_CPP
 		echo >> $FILE_CPP
-		echo "$CLASS::~$CLASS(){}" >> $FILE_CPP
+		echo -e "\treturn *this;"
+		echo "}" >> $FILE_CPP
+		echo >> $FILE_CPP
+		echo "$CLASS::~$CLASS()" >> $FILE_CPP
+		echo "{" >> $FILE_CPP
+		echo -e "\tstd::cout << \"Destructor Called\\n\";" >> $FILE_CPP
+		echo "}" >> $FILE_CPP
 		echo >> $FILE_CPP
 	else
 		echo -e '\033[0;31mError: Creating New Files!\033[0m'

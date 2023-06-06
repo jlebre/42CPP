@@ -1,5 +1,6 @@
 FILE_NAME = \
 			ClapTrap.cpp \
+			ScavTrap.cpp \
 			main.cpp \
 
 SRCS_DIR = srcs
@@ -14,20 +15,24 @@ CPPFLAGS = -Wall -Wextra -Werror $(INC) -std=c++98
 
 RM = rm -f
 
-NAME = clap_trap
+NAME = serena
 
 all: $(NAME)
 
+$(OBJS_DIR)/%.o :	$(SRCS_DIR)/%.cpp
+	@mkdir -p $(@D)
+	@$(CC) $(CPPFLAGS) -O3 -c $< -o $@
+
 $(NAME): $(SRCS)
 	@$(CC) $(CPPFLAGS) $(SRCS) -o $(NAME)
-	@echo -e '[0;32mclap_trap Compiled![0m'
+	@echo -e '[0;32mserena Compiled![0m'
 
 clean:
 	@$(RM) $(OBJS_DIR)
 
 fclean: clean
 	@$(RM) $(NAME)
-	@echo -e '[0;31mclap_trap Removed![0m'
+	@echo -e '[0;31mserena Removed![0m'
 
 re:
 	@make fclean
@@ -36,6 +41,6 @@ re:
 a:
 	@make re
 	@make clean
-	@./clap_trap
+	@./serena
 
 .PHONY: all clean fclean re a

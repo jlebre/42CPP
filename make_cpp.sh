@@ -61,10 +61,6 @@ check_srcs()
     echo >> Makefile
     echo 'SRCS = $(addprefix $(SRCS_DIR)/, $(FILE_NAME))' >> Makefile
     echo >> Makefile
-    echo 'OBJS = $(subst $(SRCS_DIR), $(OBJS_DIR), $(SRCS:.cpp=.o))' >> Makefile
-    echo >> Makefile
-    echo 'OBJS_DIR = objs' >> Makefile
-    echo >> Makefile
 }
 
 check_includes()
@@ -111,7 +107,7 @@ create_makefile()
     echo -e '\t@mkdir -p $(@D)' >> Makefile
     echo -e '\t@$(CC) $(CPPFLAGS) -O3 -c $< -o $@' >> Makefile
     echo >> Makefile
-    echo '$(NAME):' >> Makefile
+    echo '$(NAME): $(SRCS)' >> Makefile
     echo -e "\t"@'$(CC)' '$(CPPFLAGS)' '$(SRCS)' -o '$(NAME)' >> Makefile
     echo -e '\t@echo -e '"'"'\033[0;32m'$NAME 'Compiled!\033[0m'"'" >> Makefile
     echo >> Makefile
