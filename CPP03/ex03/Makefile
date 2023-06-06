@@ -12,7 +12,7 @@ CC = g++
 
 INC = -I includes
 
-CPPFLAGS = -Wall -Wextra -Werror $(INC) -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -Wshadow -Wno-shadow $(INC) -std=c++98
 
 RM = rm -f
 
