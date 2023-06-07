@@ -1,5 +1,7 @@
 FILE_NAME = \
 			Animal.cpp \
+			Cat.cpp \
+			Dog.cpp \
 			main.cpp \
 
 SRCS_DIR = srcs
