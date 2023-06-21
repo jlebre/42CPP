@@ -5,7 +5,7 @@
 
 class Animal
 {
-	protected:
+	protected: // Usado quando há herança
 		std::string type;
 
 	public:

@@ -1,26 +1,35 @@
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal()
+WrongAnimal::WrongAnimal(): type("Generic WrongAnimal")
 {
-	std::cout << "Constructor Called";
+	std::cout << "WrongAnimal Constructor Called\n";
 }
 
 WrongAnimal::WrongAnimal( const WrongAnimal &copy )
 {
 	*this = copy;
-	std::cout << "Copy constructor called!";
+	std::cout << "WrongAnimal Copy constructor called\n!";
 }
 
 WrongAnimal	&WrongAnimal::operator=( const WrongAnimal &obj )
 {
-	( void )obj;
-	std::cout << "Copy assignment operator called!";
+	type = obj.type;
+	std::cout << "WrongAnimal Copy assignment operator called!\n";
 
 	return *this;
 }
 
-WrongAnimal::~WrongAnimal()
+std::string WrongAnimal::getType() const
 {
-	std::cout << "Destructor Called";
+	return type;
 }
 
+WrongAnimal::~WrongAnimal()
+{
+	std::cout << "WrongAnimal Destructor Called\n";
+}
+
+void	WrongAnimal::makeSound() const
+{
+	std::cout << "Generic WrongAnimal Sound\n";
+}

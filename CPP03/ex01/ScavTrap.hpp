@@ -6,6 +6,7 @@
 class ScavTrap: public ClapTrap
 {
 	private:
+		bool	_gate;
 
 	public:
 		ScavTrap( const std::string name );

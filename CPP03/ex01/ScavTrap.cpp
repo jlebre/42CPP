@@ -2,6 +2,7 @@
 
 ScavTrap::ScavTrap( const std::string name )
 {
+	_gate = 0;
 	_name = name;
 	_hit = 100;
 	_energy = 50;
@@ -26,7 +27,7 @@ void    ScavTrap::attack( const std::string &target )
 		std::cout << "Energy too low... (Scav)\n";
 		return ;
 	}
-	std::cout << "ClapTrap " << _name << " attacks " \
+	std::cout << "ScavTrap " << _name << " attacks " \
 		<< target << ", causing " << _attack \
 		<< " point of damage! (Scav)\n";
 	this->_energy--;
@@ -34,5 +35,6 @@ void    ScavTrap::attack( const std::string &target )
 
 void	ScavTrap::guardGate()
 {
+	_gate = 1;
 	std::cout << "ScavTrap " << _name << " is now in Gate keeper mode\n";
 }

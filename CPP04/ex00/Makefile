@@ -2,6 +2,8 @@ FILE_NAME = \
 			Animal.cpp \
 			Cat.cpp \
 			Dog.cpp \
+			WrongAnimal.cpp \
+			WrongCat.cpp \
 			main.cpp \
 
 SRCS_DIR = srcs

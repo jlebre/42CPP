@@ -44,6 +44,11 @@ int main( void )
 		IceGiant.display_info();
 		Elsa.display_info();
 
+		green("Elsa eats an apple, receives 60 of life:");
+		Elsa.beRepaired(60);
+		IceGiant.display_info();
+		Elsa.display_info();
+
 		green("IceGiant will attack first:");
 		IceGiant.attack(Elsa.getName());
 		Elsa.takeDamage(IceGiant.getDamage());

@@ -2,6 +2,7 @@ FILE_NAME = \
 			ClapTrap.cpp \
 			ScavTrap.cpp \
 			FragTrap.cpp \
+			DiamondTrap.cpp \
 			main.cpp \
 
 SRCS_DIR = srcs
@@ -16,7 +17,7 @@ CPPFLAGS = -Wall -Wextra -Werror -Wshadow -Wno-shadow $(INC) -std=c++98
 
 RM = rm -f
 
-NAME = repetitive
+NAME = monster
 
 all: $(NAME)
 
@@ -26,14 +27,14 @@ $(OBJS_DIR)/%.o :	$(SRCS_DIR)/%.cpp
 
 $(NAME): $(SRCS)
 	@$(CC) $(CPPFLAGS) $(SRCS) -o $(NAME)
-	@echo -e '[0;32mrepetitive Compiled![0m'
+	@echo -e '[0;32mmonster Compiled![0m'
 
 clean:
 	@$(RM) $(OBJS_DIR)
 
 fclean: clean
 	@$(RM) $(NAME)
-	@echo -e '[0;31mrepetitive Removed![0m'
+	@echo -e '[0;31mmonster Removed![0m'
 
 re:
 	@make fclean
@@ -42,6 +43,6 @@ re:
 a:
 	@make re
 	@make clean
-	@./repetitive
+	@./monster
 
 .PHONY: all clean fclean re a

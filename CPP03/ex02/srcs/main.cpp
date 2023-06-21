@@ -12,106 +12,104 @@ void	red(std::string str)
 
 int main( void )
 {
-	std::cout << "\tOnly IceGiant\n";
-	{
-		green("Creating IceGiant:");
-		ScavTrap IceGiant("IceGiant");
+	std::cout << "\tOlaf Joins the party (Frag)\n";
+	green("Creating Elsa: (Clap)");
+	ClapTrap Elsa("Elsa");
+	green("Creating IceGiant: (Scav)");
+	ScavTrap IceGiant("IceGiant");
+	green("Creating Olaf: (Frag)");
+	FragTrap Olaf("Olaf");
 
-		green("Default values:");
-		IceGiant.display_info();
+	green("Default values:");
+	IceGiant.display_info();
+	Elsa.display_info();
+	Olaf.display_info();
 
-		green("IceGiant will now attack someone:");
-		IceGiant.attack("Someone");
-		IceGiant.display_info();
+	green("Elsa eats an apple, receives 60 of life:");
+	Elsa.beRepaired(60);
+	IceGiant.display_info();
+	Elsa.display_info();
+	Olaf.display_info();
 
-		IceGiant.setDamage(5);
-		green("IceGiant found a sword, now it takes 5 of Damage:");
-		IceGiant.display_info();
+	green("IceGiant will attack first:");
+	IceGiant.attack(Elsa.getName());
+	Elsa.takeDamage(IceGiant.getDamage());
+	IceGiant.display_info();
+	Elsa.display_info();
+	Olaf.display_info();
 
-		green("Attacks someone again:");
-		IceGiant.attack("Someone");
+	green("Elsa found a sword, that takes 5 of Damage:");
+	Elsa.setDamage(5);
+	IceGiant.display_info();
+	Elsa.display_info();
+	Olaf.display_info();
 
-		green("Kill IceGiant");
-	}
-	std::cout << "\n\n\tNow... The battle of Titans: IceGiant & Elsa\n";
-	{
-		green("Creating IceGiant:");
-		ScavTrap IceGiant("IceGiant");
-		green("Creating Elsa:");
-		ScavTrap Elsa("Elsa");
+	green("Elsa attacks IceGiant with his sword:");
+	Elsa.attack(IceGiant.getName());
+	IceGiant.takeDamage(Elsa.getDamage());
+	IceGiant.display_info();
+	Elsa.display_info();
+	Olaf.display_info();
 
-		green("Default values:");
-		IceGiant.display_info();
-		Elsa.display_info();
+	green("IceGiant heals himself with a bandage:");
+	IceGiant.beRepaired(1);
+	IceGiant.display_info();
+	Elsa.display_info();
+	Olaf.display_info();
 
-		green("IceGiant will attack first:");
-		IceGiant.attack(Elsa.getName());
-		Elsa.takeDamage(IceGiant.getDamage());
-		IceGiant.display_info();
-		Elsa.display_info();
+	green("IceGiant pushes Elsa:");
+	IceGiant.attack(Elsa.getName());
+	Elsa.takeDamage(IceGiant.getDamage());
 
-		green("Elsa found a sword, that takes 5 of Damage:");
-		Elsa.setDamage(5);
-		IceGiant.display_info();
-		Elsa.display_info();
+	green("Elsa trips and bangs his head on a rock, taking 8 of Damage:");
+	Elsa.takeDamage(8);
+	IceGiant.display_info();
+	Elsa.display_info();
+	Olaf.display_info();
 
-		green("Elsa attacks IceGiant with his sword:");
-		Elsa.attack(IceGiant.getName());
-		IceGiant.takeDamage(Elsa.getDamage());
-		IceGiant.display_info();
-		Elsa.display_info();
+	green("Then Elsa attacks again:");
+	Elsa.attack(IceGiant.getName());
+	IceGiant.takeDamage(Elsa.getDamage());
+	IceGiant.display_info();
+	Elsa.display_info();
+	Olaf.display_info();
 
-		green("IceGiant heals himself with a bandage:");
+	green("IceGiant found a slingshot, that takes 2 of Damage:");
+	IceGiant.setDamage(2);
+
+	green("IceGiant attacks Elsa:");
+	IceGiant.attack(Elsa.getName());
+	Elsa.takeDamage(IceGiant.getDamage());
+	IceGiant.display_info();
+	Elsa.display_info();
+	Olaf.display_info();
+
+	green("Elsa tries to attack:");
+	Elsa.attack(IceGiant.getName());
+	IceGiant.display_info();
+	Elsa.display_info();
+	Olaf.display_info();
+
+	green("IceGiant applies 6 Bandages:");
+	for (int i = 0 ; i < 6 ; i++)
 		IceGiant.beRepaired(1);
-		IceGiant.display_info();
-		Elsa.display_info();
+	IceGiant.display_info();
+	Elsa.display_info();
+	Olaf.display_info();
 
-		green("IceGiant pushes Elsa:");
-		IceGiant.attack(Elsa.getName());
-		Elsa.takeDamage(IceGiant.getDamage());
+	green("After that, IceGiant tries to do one last attack on Elsa's dead body:");
+	IceGiant.attack(Elsa.getName());
+	IceGiant.display_info();
+	Elsa.display_info();
+	Olaf.display_info();
 
-		green("Elsa trips and bangs his head on a rock, taking 8 of Damage:");
-		Elsa.takeDamage(8);
-		IceGiant.display_info();
-		Elsa.display_info();
+	green("After he fails, he enters Gate Keeper Mode:");
+	IceGiant.guardGate();
 
-		green("Then Elsa attacks again:");
-		Elsa.attack(IceGiant.getName());
-		IceGiant.takeDamage(Elsa.getDamage());
-		IceGiant.display_info();
-		Elsa.display_info();
+	green("Olaf requests an High Five:");
+	Olaf.highFivesGuys();
 
-		green("IceGiant found a slingshot, that takes 2 of Damage:");
-		IceGiant.setDamage(2);
-
-		green("IceGiant attacks Elsa:");
-		IceGiant.attack(Elsa.getName());
-		Elsa.takeDamage(IceGiant.getDamage());
-		IceGiant.display_info();
-		Elsa.display_info();
-
-		green("Elsa tries to attack:");
-		Elsa.attack(IceGiant.getName());
-		IceGiant.display_info();
-		Elsa.display_info();
-
-		green("IceGiant applies 6 Bandages:");
-		for (int i = 0 ; i < 6 ; i++)
-			IceGiant.beRepaired(1);
-		IceGiant.display_info();
-		Elsa.display_info();
-
-		green("After that, IceGiant tries to do one last attack on Elsa's dead body:");
-		IceGiant.attack(Elsa.getName());
-		IceGiant.display_info();
-		Elsa.display_info();
-
-		green("After he fails, he enters Gate Keeper Mode:");
-		IceGiant.guardGate();
-
-		green("Kill IceGiant & Elsa");
-	}
-
+	green("Kill IceGiant & Elsa & Olaf");
 	return 0;
 }
 

@@ -1,20 +1,20 @@
 #include "Animal.hpp"
 
-Animal::Animal(): type("Ahahah")
+Animal::Animal(): type("Generic Animal")
 {
-	std::cout << "Constructor Called\n";
+	std::cout << "Animal Constructor Called\n";
 }
 
 Animal::Animal( const Animal &copy )
 {
 	*this = copy;
-	std::cout << "Copy constructor called\n!";
+	std::cout << "Animal Copy constructor called\n!";
 }
 
 Animal	&Animal::operator=( const Animal &obj )
 {
 	type = obj.type;
-	std::cout << "Copy assignment operator called!\n";
+	std::cout << "Animal Copy assignment operator called!\n";
 
 	return *this;
 }
@@ -26,10 +26,10 @@ std::string Animal::getType() const
 
 Animal::~Animal()
 {
-	std::cout << "Destructor Called\n";
+	std::cout << "Animal Destructor Called\n";
 }
 
 void	Animal::makeSound() const
 {
-	std::cout << "Some Animal Sound\n";
+	std::cout << "Generic Animal Sound\n";
 }
