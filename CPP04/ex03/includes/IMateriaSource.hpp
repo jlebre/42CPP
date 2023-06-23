@@ -10,3 +10,7 @@ class IMateriaSource
 };
 
 #endif
+
+/*
+	CPP does not have interfaces, so it uses Pure Abstract Classes
+*/
