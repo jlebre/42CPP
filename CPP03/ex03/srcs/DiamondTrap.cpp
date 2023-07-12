@@ -5,8 +5,9 @@ DiamondTrap::DiamondTrap()
 	std::cout << "Diamond Default Constructor called!\n";
 }
 
-DiamondTrap::DiamondTrap( const std::string name ): ClapTrap(name + "_clap_name"), FragTrap(name), ScavTrap(name)
+DiamondTrap::DiamondTrap( const std::string name ): FragTrap(name), ScavTrap(name)
 {
+	ClapTrap::setName(name + "_clap_name");
 	_name = name;
 	FragTrap::_hit = 100;
 	FragTrap::_attack = 30;
@@ -27,5 +28,5 @@ void	DiamondTrap::attack( const std::string &target)
 void    DiamondTrap::whoAmI()
 {
     std::cout << "My name is " << _name << std::endl;
-    std::cout << "My clap_name is " << ClapTrap::_name << std::endl;
+    std::cout << "My clap_name is " << ClapTrap::getName() << std::endl;
 }
