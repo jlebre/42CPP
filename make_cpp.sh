@@ -74,17 +74,17 @@ check_includes()
         mv *.hpp ./includes
         echo "INC = -I includes">> Makefile
         echo >> Makefile
-        echo 'CPPFLAGS = -Wall -Wextra -Werror $(INC) -std=c++98' >> Makefile
+        echo 'CXXFLAGS = -Wall -Wextra -Werror $(INC) -std=c++98' >> Makefile
         echo >> Makefile
     else
         if [[ -d "includes" ]]
         then
             echo "INC = -I includes">> Makefile
             echo >> Makefile
-            echo 'CPPFLAGS = -Wall -Wextra -Werror $(INC) -std=c++98' >> Makefile
+            echo 'CXXFLAGS = -Wall -Wextra -Werror $(INC) -std=c++98' >> Makefile
             echo >> Makefile
         else
-            echo "CPPFLAGS = -Wall -Wextra -Werror -std=c++98" >> Makefile
+            echo "CXXFLAGS = -Wall -Wextra -Werror -std=c++98" >> Makefile
             echo >> Makefile
         fi
     fi
@@ -94,7 +94,7 @@ create_makefile()
 {
     touch Makefile
     check_srcs
-    echo "CC = g++" >> Makefile
+    echo "CC = c++" >> Makefile
     echo >> Makefile
     check_includes
     echo "RM = rm -f" >> Makefile
@@ -105,10 +105,10 @@ create_makefile()
     echo >> Makefile
     echo '$(OBJS_DIR)/%.o :	$(SRCS_DIR)/%.cpp' >> Makefile
     echo -e '\t@mkdir -p $(@D)' >> Makefile
-    echo -e '\t@$(CC) $(CPPFLAGS) -O3 -c $< -o $@' >> Makefile
+    echo -e '\t@$(CC) $(CXXFLAGS) -O3 -c $< -o $@' >> Makefile
     echo >> Makefile
     echo '$(NAME): $(SRCS)' >> Makefile
-    echo -e "\t"@'$(CC)' '$(CPPFLAGS)' '$(SRCS)' -o '$(NAME)' >> Makefile
+    echo -e "\t"@'$(CC)' '$(CXXFLAGS)' '$(SRCS)' -o '$(NAME)' >> Makefile
     echo -e '\t@echo -e '"'"'\033[0;32m'$NAME 'Compiled!\033[0m'"'" >> Makefile
     echo >> Makefile
     echo clean: >> Makefile
