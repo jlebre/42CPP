@@ -3,6 +3,9 @@
 
 # include <iostream>
 # include <exception>
+# include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -16,13 +19,18 @@ class Bureaucrat
 		Bureaucrat( const Bureaucrat &copy );  
 		~Bureaucrat();
 		Bureaucrat &operator = ( const Bureaucrat &obj );
+
+		//Getters
 		std::string		getName() const;
 		int				getGrade() const;
 		void			setGrade( int grade );
-		void			info();
+
+		//Functions
 		void			increment();
 		void			decrement();
+		void			signForm( Form &formulario);
 		
+		//Exceptions
 		class GradeTooHighException: public std::exception
 		{
 			public:

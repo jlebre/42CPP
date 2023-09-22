@@ -6,7 +6,7 @@ SRCS_DIR = srcs
 
 SRCS = $(addprefix $(SRCS_DIR)/, $(FILE_NAME))
 
-CC = c++
+CXX = c++
 
 INC = -I includes
 
@@ -20,10 +20,10 @@ all: $(NAME)
 
 $(OBJS_DIR)/%.o :	$(SRCS_DIR)/%.cpp
 	@mkdir -p $(@D)
-	@$(CC) $(CXXFLAGS) -O3 -c $< -o $@
+	@$(CXX) $(CXXFLAGS) -O3 -c $< -o $@
 
 $(NAME): $(SRCS)
-	@$(CC) $(CXXFLAGS) $(SRCS) -o $(NAME)
+	@$(CXX) $(CXXFLAGS) $(SRCS) -o $(NAME)
 	@echo -e '[0;32mbureaucrat Compiled![0m'
 
 clean:

@@ -1,6 +1,9 @@
 FILE_NAME = \
 			Bureaucrat.cpp \
-			Form.cpp \
+			AForm.cpp \
+			PresidentialPardonForm.cpp \
+			ShrubberyCreationForm.cpp \
+			RobotomyRequestForm.cpp \
 			main.cpp \
 
 SRCS_DIR = srcs
@@ -15,7 +18,7 @@ CXXFLAGS = -Wall -Wextra -Werror $(INC) -std=c++98
 
 RM = rm -f
 
-NAME = formUp
+NAME = moreForms
 
 all: $(NAME)
 
@@ -25,14 +28,14 @@ $(OBJS_DIR)/%.o :	$(SRCS_DIR)/%.cpp
 
 $(NAME): $(SRCS)
 	@$(CXX) $(CXXFLAGS) $(SRCS) -o $(NAME)
-	@echo -e '[0;32mformUp Compiled![0m'
+	@echo -e '[0;32mmoreForms Compiled![0m'
 
 clean:
 	@$(RM) $(OBJS_DIR)
 
 fclean: clean
 	@$(RM) $(NAME)
-	@echo -e '[0;31mformUp Removed![0m'
+	@echo -e '[0;31mmoreForms Removed![0m'
 
 re:
 	@make fclean
@@ -41,6 +44,6 @@ re:
 a:
 	@make re
 	@make clean
-	@./formUp
+	@./moreForms
 
 .PHONY: all clean fclean re a

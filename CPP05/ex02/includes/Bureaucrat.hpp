@@ -3,28 +3,34 @@
 
 # include <iostream>
 # include <exception>
+# include "AForm.hpp"
+
+class AForm;
 
 class Bureaucrat
 {
 	private:
 		const std::string _name;
-		int _grade;
+		int	_grade;
 
 	public:
-		Bureaucrat();
-		Bureaucrat( const std::string name, int grade );
-		Bureaucrat( const Bureaucrat &copy );
-		Bureaucrat &operator = ( const Bureaucrat &obj );
+		Bureaucrat( void ); 
+		Bureaucrat( const std::string name, int grade );   
+		Bureaucrat( const Bureaucrat &copy );  
 		~Bureaucrat();
+		Bureaucrat &operator = ( const Bureaucrat &obj );
 
 		//Getters
-		std::string	getName() const;
-		int		getGrade() const;
-		
-		//Functions
-		void	increment();
-		void	decrement();
+		std::string		getName() const;
+		int				getGrade() const;
+		void			setGrade( int grade );
 
+		//Functions
+		void			increment();
+		void			decrement();
+		void			signForm( AForm &formulario);
+		void			executeForm( AForm const &formulario );
+		
 		//Exceptions
 		class GradeTooHighException: public std::exception
 		{
@@ -42,3 +48,4 @@ class Bureaucrat
 std::ostream &operator<<(std::ostream &stream, Bureaucrat &obj);
 
 #endif
+
