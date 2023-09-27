@@ -24,7 +24,7 @@ ScalarConverter::~ScalarConverter()
 	std::cout << "Destructor Called\n";
 }
 
-void    ScalarConverter::convert(std::string conv)
+void    ScalarConverter::convert( std::string conv )
 {
 	if (isinf(conv))
 		convert_inf(conv);
@@ -49,7 +49,7 @@ void    ScalarConverter::error()
 }
 
 
-void    ScalarConverter::convert_inf(std::string conv)
+void    ScalarConverter::convert_inf( std::string conv )
 {
 	int len = 3;
 	std::string arr[6];
@@ -75,7 +75,7 @@ void    ScalarConverter::convert_inf(std::string conv)
 	std::cout << "double: " << root << "\n";
 }
 
-void    ScalarConverter::convert_char(std::string conv)
+void    ScalarConverter::convert_char( std::string conv )
 {
 	char c = conv[0];
 	std::cout << "char: \'" << c << "\'\n";
@@ -84,7 +84,7 @@ void    ScalarConverter::convert_char(std::string conv)
 	std::cout << "double: " << static_cast<double>(c) << ".0\n";
 }
 
-void    ScalarConverter::convert_int(std::string conv)
+void    ScalarConverter::convert_int( std::string conv )
 { 
 	int i = atoi(conv.c_str());
 	std::cout << i << std::endl;
@@ -102,7 +102,7 @@ void    ScalarConverter::convert_int(std::string conv)
 	std::cout << "double: " << static_cast<double>(i) << ".0\n";
 }
 
-void    ScalarConverter::convert_float(std::string conv)
+void    ScalarConverter::convert_float( std::string conv )
 {
 	float f = atof(conv.c_str());
 	if (f > 32 && f < 127)

@@ -1,5 +1,5 @@
 FILE_NAME = \
-			Identify.cpp \
+			Base.cpp \
 			main.cpp \
 
 SRCS_DIR = srcs

@@ -1,5 +1,4 @@
 FILE_NAME = \
-			Serialization.cpp \
 			main.cpp \
 
 SRCS_DIR = srcs
@@ -14,7 +13,7 @@ CXXFLAGS = -Wall -Wextra -Werror $(INC) -std=c++98
 
 RM = rm -f
 
-NAME = serialization
+NAME = whatever
 
 all: $(NAME)
 
@@ -24,14 +23,14 @@ $(OBJS_DIR)/%.o :	$(SRCS_DIR)/%.cpp
 
 $(NAME): $(SRCS)
 	@$(CXX) $(CXXFLAGS) $(SRCS) -o $(NAME)
-	@echo -e '[0;32mserialization Compiled![0m'
+	@echo -e '[0;32mwhatever Compiled![0m'
 
 clean:
 	@$(RM) $(OBJS_DIR)
 
 fclean: clean
 	@$(RM) $(NAME)
-	@echo -e '[0;31mserialization Removed![0m'
+	@echo -e '[0;31mwhatever Removed![0m'
 
 re:
 	@make fclean
@@ -40,6 +39,6 @@ re:
 a:
 	@make re
 	@make clean
-	@./serialization
+	@./whatever
 
 .PHONY: all clean fclean re a

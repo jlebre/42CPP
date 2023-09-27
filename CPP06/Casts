@@ -1,0 +1,29 @@
+https://www.geeksforgeeks.org/static_cast-in-cpp/
+
+Static Cast:
+
+Compile-time cast
+Int to Float (vv)
+Int to Double (vv)
+Pointer to void* (vv)
+
+static_cast<dest_type>( source );
+
+
+Dynamic Cast:
+
+Mainly used for safe downcasting during run time
+
+static_cast<new_type>( Expression );
+
+
+Const Cast:
+
+Used to cast away the constness of variables
+
+
+Reinterpret Cast:
+
+It is used to convert a pointer of some data type into a pointer of another data type, even if the data types before and after conversion are different.
+
+data_type *var_name = reinterpret_cast <data_type *>(pointer_variable);
