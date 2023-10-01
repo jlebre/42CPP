@@ -1,5 +1,5 @@
-#ifndef SPAN_HPP
-# define SPAN_HPP
+#ifndef MUTANTSTACK_HPP
+# define MUTANTSTACK_HPP
 
 # include <iostream>
 # include <exception>
@@ -9,26 +9,19 @@
 # include <algorithm>
 # include <stdint.h>
 
-class Span
+class MutantStack
 {
 	private:
-		std::vector<int> _span;
+		std::vector<int> _MutantStack;
 		unsigned int _nb;
 		unsigned int _size;
 
 	public:
-		Span();
-		Span( unsigned int size );
-		Span( const Span &copy );
-		Span &operator = ( const Span &obj );
-		~Span();
-
-		unsigned int getSize();
-		void		addNumber( int nb );
-		void		addRand();
-		void		addById();
-		int			shortestSpan();
-		int			longestSpan();
+		MutantStack();
+		MutantStack( unsigned int size );
+		MutantStack( const MutantStack &copy );
+		MutantStack &operator = ( const MutantStack &obj );
+		~MutantStack();
 
 		class SpanNotFoundException: public std::exception
 		{
