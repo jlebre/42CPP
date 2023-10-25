@@ -94,7 +94,7 @@ void    ScalarConverter::convert_int( std::string conv )
 		std::cout << "char: Impossible\n";
 	else
 		std::cout << "char: Non displayable\n";
-	if (i > INT_MAX || i < INT_MIN)
+	if (i > std::numeric_limits<int>::max() || i < std::numeric_limits<int>::min())
 		std::cout << "int: Non displayable\n";
 	else
 		std::cout << "int: " << i << std::endl;
@@ -111,7 +111,7 @@ void    ScalarConverter::convert_float( std::string conv )
 		std::cout << "char: Impossible\n";
 	else
 		std::cout << "char: Non displayable\n";
-	if (f > INT_MAX || f < INT_MIN)
+	if (f > std::numeric_limits<float>::max() || f < std::numeric_limits<float>::min())
 		std::cout << "int: Impossible\n";
 	else
 		std::cout << "int: " << static_cast<int>(f) << std::endl;
@@ -137,7 +137,7 @@ void    ScalarConverter::convert_double(std::string conv)
 		std::cout << "char: Impossible\n";
 	else
 		std::cout << "char: Non displayable\n";
-	if (d > INT_MAX || d < INT_MIN)
+	if (d > std::numeric_limits<double>::max() || d < std::numeric_limits<double>::min())
 		std::cout << "int: Impossible\n";
 	else
 		std::cout << "int: " << static_cast<int>(d) << std::endl;
