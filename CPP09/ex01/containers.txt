@@ -1,0 +1,76 @@
+1. std::vector:
+
+- A dynamic array that can grow or shrink in size.
+- Provides fast random access to elements.
+- Insertions and deletions at the end are efficient, but those in the middle are relatively slow.
+
+
+2. std::list:
+
+- A doubly-linked list.
+- Allows for fast insertions and deletions at any position.
+- Random access is slow compared to vectors because you have to traverse the list from the beginning.
+
+
+3. std::deque (short for "double-ended queue"):
+
+- A double-ended queue that allows efficient insertions and deletions at both ends.
+- Similar to a vector but with better performance for insertions and deletions at the front.
+
+
+4. std::array:
+
+- A fixed-size array with a static size determined at compile-time.
+- Provides fast random access and better performance than dynamic arrays like vectors for small, fixed-size collections.
+
+
+5. std::set:
+
+- A container that stores unique, sorted elements.
+- Elements are automatically sorted upon insertion.
+- Lookup, insertion, and deletion of elements are all log(N) operations.
+
+
+6. std::map:
+
+- A container that stores key-value pairs where keys are unique and sorted.
+- Similar to std::set but stores pairs of elements.
+- Allows efficient key-based lookup, insertion, and deletion.
+
+
+7. std::unordered_set and std::unordered_map:
+
+- Containers that store unique elements in an unordered manner.
+- Hashing is used to provide efficient lookup, insertion, and deletion.
+- Elements are not sorted, but operations are generally faster than their ordered counterparts.
+
+
+8. std::stack:
+
+- A container that follows the Last-In-First-Out (LIFO) principle.
+- Typically used for implementing stacks.
+- Operations include push (to add an element) and pop (to remove the top element).
+
+
+9. std::queue:
+
+- A container that follows the First-In-First-Out (FIFO) principle.
+- Commonly used for implementing queues.
+- Operations include enqueue (to add an element) and dequeue (to remove the front element).
+
+
+10. std::priority_queue:
+
+- A container that provides a priority-based queue.
+- The highest-priority element is always at the front.
+- Useful for tasks like implementing a priority queue or heap.
+
+
+or ( unsigned int i = 1 ; i < _size ; i++)
+	{
+		int span = _span[i - 1] - _span[i];
+
+		if (span < 0)
+			span = -span;
+		if (_span[i] < minSpan)
+		{

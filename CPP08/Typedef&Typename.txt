@@ -1,0 +1,32 @@
+In C++, typedef and typename are both used to work with types, but they serve different purposes.
+
+/////////////////////////////////////////////
+
+1. typedef:
+
+typedef is used to create a new name (alias) for an existing data type. It is often used to make complex or long type names more readable and to improve code maintainability.
+The basic syntax for typedef is as follows:
+
+typedef existing_type new_type_name;
+
+Example:
+typedef int Integer; // Creates an alias "Integer" for the "int" type
+Integer x = 42;
+
+/////////////////////////////////////////////
+
+2. typename:
+
+typename is used in template-based C++ code to indicate that a dependent name in a template should be treated as a type. This is often necessary when working with templates to help the compiler understand that a name represents a type, not a variable or function.
+The basic syntax for typename is used in the context of template programming, such as when defining or using template classes or functions.
+
+Example (within a template class definition):
+template <typename T>
+class MyClass {
+public:
+    typename T::SomeType member; // Use "typename" to specify that T::SomeType is a type.
+};
+
+/////////////////////////////////////////////
+
+It's important to note that typename is used specifically in the context of templates to disambiguate dependent type names, while typedef is used for creating type aliases in any context. In non-template code, you won't typically encounter typename for this purpose. However, in modern C++ (C++11 and later), you might also use using to create type aliases instead of typedef, as it provides some additional flexibility and clarity.

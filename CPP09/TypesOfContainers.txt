@@ -1,0 +1,19 @@
+1. vector: A dynamic array that can grow or shrink in size.
+
+2. list: A doubly-linked list that allows efficient insertion and removal of elements.
+
+3. deque: A double-ended queue, similar to a vector but allowing efficient insertion and removal at both ends.
+
+4. set: A container that stores unique elements in sorted order.
+
+5. map: A container that stores key-value pairs and allows efficient look-up by key.
+
+6. multiset: Similar to a set, but allows duplicates.
+
+7. multimap: Similar to a map, but allows multiple elements with the same key.
+
+8. stack: Implements a stack data structure with LIFO (Last-In-First-Out) behavior.
+
+9. queue: Implements a queue data structure with FIFO (First-In-First-Out) behavior.
+
+10. priority_queue: Implements a priority queue, typically used with a heap data structure.
