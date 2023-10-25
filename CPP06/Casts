@@ -14,7 +14,7 @@ Dynamic Cast:
 
 Mainly used for safe downcasting during run time
 
-static_cast<new_type>( Expression );
+dynamic_cast<new_type>( Expression );
 
 
 Const Cast:

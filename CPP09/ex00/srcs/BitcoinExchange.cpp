@@ -3,6 +3,7 @@
 BitcoinExchange::BitcoinExchange()
 {
     createDataBase();
+    displayMap();
     std::cout << "BitcoinExchange default constructor called\n";
 }
 
@@ -37,7 +38,7 @@ void BitcoinExchange::createDataBase()
         while (getline(_input, line))
         {
             key = line.substr(0, line.find(','));
-            value = std::stof(line.substr(line.find(',') + 1));
+            value = (float)line.substr(line.find(',') + 1);
             _data.insert(std::pair<std::string, float>(key, value));
         }
         _input.close();
