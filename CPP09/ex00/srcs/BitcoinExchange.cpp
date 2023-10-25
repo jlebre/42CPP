@@ -2,6 +2,7 @@
 
 BitcoinExchange::BitcoinExchange()
 {
+    createDataBase();
     std::cout << "BitcoinExchange default constructor called\n";
 }
 
@@ -22,6 +23,27 @@ BitcoinExchange & BitcoinExchange::operator=( BitcoinExchange const & obj )
     std::cout << "BitcoinExchange assignation operator called\n";
 
     return *this;
+}
+
+void BitcoinExchange::createDataBase()
+{
+    std::string line;
+    std::string key;
+    float value;
+
+    _input.open("data.csv");
+    if (_input.is_open())
+    {
+        while (getline(_input, line))
+        {
+            key = line.substr(0, line.find(','));
+            value = std::stof(line.substr(line.find(',') + 1));
+            _data.insert(std::pair<std::string, float>(key, value));
+        }
+        _input.close();
+    }
+    else
+        std::cout << "Unable to open file\n";
 }
 
 void BitcoinExchange::displayMap()
