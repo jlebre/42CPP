@@ -15,6 +15,8 @@ class MutantStack: public std::stack<T>
 {
 	public:
 		MutantStack<T>(){};
+		MutantStack<T>(const MutantStack &copy){(void)copy;};
+		MutantStack<T>&	operator= (const MutantStack &copy){(void)copy;return *this;};
 		~MutantStack<T>(){};
 
 		typedef typename std::stack<T>::container_type::iterator iterator;

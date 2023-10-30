@@ -3,7 +3,7 @@ Array<T>::Array()
 {
 	_len = 0;
 	_arr = new T[_len];
-	std::cout << "Default Constructor Called\n";
+	//std::cout << "Default Constructor Called\n";
 }
 
 template <class T>
@@ -11,7 +11,7 @@ Array<T>::Array( unsigned int n )
 {
 	_len = n;
 	_arr = new T[n];
-	std::cout << "Unsigned int Constructor Called\n";
+	//std::cout << "Unsigned int Constructor Called\n";
 }
 
 template <class T>
@@ -22,14 +22,14 @@ Array<T>::Array( const Array &copy )
 
 	for (unsigned int ui = 0; ui < _len; ui++)
 		_arr[ui] = copy[ui];
-	std::cout << "Copy Constructor Called\n";
+	//std::cout << "Copy Constructor Called\n";
 }
 
 template <class T>
 Array<T>::~Array()
 {
 	delete[] _arr;
-	std::cout << "Destructor Called\n";
+	//std::cout << "Destructor Called\n";
 }
 
 template <class T>
@@ -41,7 +41,7 @@ Array<T>&	Array<T>::operator= ( const Array &copy )
 	for (unsigned int ui = 0; ui < _len; ui++)
 		_arr[ui] = copy[ui];
 
-	std::cout << "Copy Assignement Operator Constructor Called\n";
+	//std::cout << "Copy Assignement Operator Constructor Called\n";
 	return *this;
 }
 
@@ -53,9 +53,8 @@ T& Array<T>::operator[](int i) const
 	return _arr[i];
 }
 
-
 template <class T>
-unsigned int Array<T>::size()
+unsigned int Array<T>::size() const
 {
 	return _len;
 }

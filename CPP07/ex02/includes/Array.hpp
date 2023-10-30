@@ -3,6 +3,8 @@
 
 # include <iostream>
 # include <exception>
+# include <ctime>
+# include <cstdlib>
 
 template <class T> class Array
 {
@@ -18,7 +20,7 @@ template <class T> class Array
 		Array&	operator= (const Array &copy);
 		T& operator[](int i) const;
 
-		unsigned int size();
+		unsigned int size() const;
 
 		class ErrorException: public std::exception
 		{

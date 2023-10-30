@@ -95,16 +95,6 @@ int	Span::longestSpan()
 {
 	if (_nb < 2)
 		throw SpanNotFoundException();
-	int min = _span[0];
-	int max = _span[0];
-	for (unsigned int i = 0; i != _nb ; i++)
-	{
-		if (_span[i] == _span[i + 1])
-			continue;
-		if (_span[i] < min)
-			min = _span[i];
-		if (_span[i] > max)
-			max = _span[i];
-	}
-	return std::abs(max - min);
+
+	return std::abs(*max_element(_span.begin(), _span.end()) - *min_element(_span.begin(), _span.end()));
 }

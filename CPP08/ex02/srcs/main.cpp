@@ -60,5 +60,30 @@ int main()
 		}
 	}
 
+	green("More Tests");
+	{
+		MutantStack<std::string> mstack;
+
+		mstack.push("ola");
+		mstack.push("o");
+		mstack.push("meu");
+		mstack.push("nome");
+		mstack.push("e");
+		mstack.push("jose");
+		
+		std::cout << "Top: " << mstack.top() << std::endl;
+		std::cout << "Size: " << mstack.size() << std::endl;
+		MutantStack<std::string>::iterator it = mstack.begin();
+		MutantStack<std::string>::iterator ite = mstack.end();
+		
+		++it;
+		--it;
+		while (it != ite)
+		{
+			std::cout << *it << std::endl;
+			++it;
+		}
+	}
+
 	return 0;
 }

@@ -4,14 +4,13 @@
 # include <iostream>
 # include <list>
 # include <vector>
+# include <algorithm>
 
 template <typename T> int easyfind(T container, int y)
 {
-	for(int i = 0; container[i]; i++)
-	{
-		if (container[i] == y)
-			return 1;
-	}
+	typename T::iterator it = std::find(container.begin(), container.end(), y);
+	if (it != container.end())
+		return 1;
 	return 0;
 }
 
