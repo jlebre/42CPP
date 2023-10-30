@@ -8,7 +8,15 @@ int main( int argc, char **argv )
 		return 1;
 	}
 
-	std::string input = argv[2];
+	BitcoinExchange exchange;
+	
+	std::ifstream input;
+
+	input.open(argv[1]);
+	if (input.is_open())
+	{
+		std::cout << "File opened\n";
+	}
 
 	return 0;
 }

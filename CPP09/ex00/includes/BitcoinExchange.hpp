@@ -11,7 +11,7 @@ class BitcoinExchange
 	private:
 		std::map<std::string, float> _data;
 		std::ifstream _input;
-		std::ifstream _dataBase;
+		std::ifstream _dataCSV;
 
 	public:
 		BitcoinExchange();
@@ -20,6 +20,7 @@ class BitcoinExchange
 		BitcoinExchange &operator=(BitcoinExchange const & obj);
 
 		void createDataBase();
+		void displayMap();
 		int check();
 };
 

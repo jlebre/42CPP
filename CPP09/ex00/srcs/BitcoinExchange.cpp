@@ -32,16 +32,17 @@ void BitcoinExchange::createDataBase()
     std::string key;
     float value;
 
-    _input.open("data.csv");
-    if (_input.is_open())
+    _dataCSV.open("data.csv");
+    if (_dataCSV.is_open())
     {
-        while (getline(_input, line))
+        while (getline(_dataCSV, line))
         {
             key = line.substr(0, line.find(','));
-            value = (float)line.substr(line.find(',') + 1);
+            std::string tmp = line.substr(line.find(',') + 1);
+            value = std::atof(tmp.c_str());
             _data.insert(std::pair<std::string, float>(key, value));
         }
-        _input.close();
+        _dataCSV.close();
     }
     else
         std::cout << "Unable to open file\n";
@@ -55,3 +56,9 @@ void BitcoinExchange::displayMap()
 	for ( ; it != ite; it++ )
 		std::cout << it->first << " => " << it->second << std::endl;
 }
+
+/*
+Check if date is valid
+Check if the value is valid
+Float, or int between 0 and 1000
+*/
