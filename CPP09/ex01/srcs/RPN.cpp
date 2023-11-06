@@ -2,7 +2,6 @@
 
 RPN::RPN()
 {
-	std::stack<char> _stack;
 	//std::cout << "RPN default constructor called\n";
 }
 
@@ -28,16 +27,22 @@ RPN & RPN::operator=( RPN const & obj )
 // Reverse Polish Notation
 void RPN::calculate(std::string line)
 {
+	try {
+		if (line.empty())
+			throw std::string("Error: empty line");
+	}
+	catch (std::string &e) {
+		std::cout << e << std::endl;
+		return ;
+	}
+	
 	std::string::iterator it = line.begin();
 	std::string::iterator ite = line.end();
 	int a;
 	int b;
-	//int c;
 
 	for ( ; it != ite; it++ )
 	{
-		//if (!_stack.empty())
-		//	std::cout << _stack.top() << std::endl;
 		if (*it == ' ')
 			continue ;
 		else if (*it >= '0' && *it <= '9') 
@@ -56,7 +61,6 @@ void RPN::calculate(std::string line)
 				_stack.push(a * b);
 			else if (*it == '/')
 				_stack.push(a / b);
-			//std::cout << _stack.top() << std::endl;
 		}
 		else
 		{

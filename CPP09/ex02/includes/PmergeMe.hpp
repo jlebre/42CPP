@@ -3,12 +3,16 @@
 
 # include <iostream>
 # include <algorithm>
-# include <stack>
+# include <time.h>
+# include <ctime>
+# include <vector>
+# include <list>
 
 class PmergeMe
 {
 	private:
-		std::stack<int> _stack;
+		std::vector<int> _vector;
+		std::list<int> _list;
 
 	public:
 		PmergeMe();
@@ -16,7 +20,10 @@ class PmergeMe
 		PmergeMe(PmergeMe const & copy);
 		PmergeMe &operator=(PmergeMe const & obj);
 
-		void calculate(std::string line);
+		void merge(std::vector<int> input);
+		void sortVector();
+		void sortList();
+		void printVector(std::vector<int> input);
 };
 
 #endif 

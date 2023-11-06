@@ -42,4 +42,9 @@ a:
 	@make clean
 	@./PmergeMe
 
-.PHONY: all clean fclean re a
+test:
+	@make re
+	@./PmergeMe 3 5 9 7 4
+	@./PmergeMe `shuf -i 1-100000 -n 3000 | tr "\n" " "`
+
+.PHONY: all clean fclean re a test
