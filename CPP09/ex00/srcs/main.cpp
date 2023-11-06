@@ -11,11 +11,18 @@ int main( int argc, char **argv )
 	BitcoinExchange exchange;
 	
 	std::ifstream input;
+	std::string line;
 
 	input.open(argv[1]);
 	if (input.is_open())
 	{
-		std::cout << "File opened\n";
+		while (getline(input, line))
+			exchange.check(line);
+	}
+	else
+	{
+		std::cerr << "Error: could not open file.\n";
+		return 1;
 	}
 
 	return 0;
