@@ -8,7 +8,7 @@
 class RPN
 {
 	private:
-		std::stack<char> _stack;
+		std::stack<int> _stack;
 
 	public:
 		RPN();
@@ -16,9 +16,7 @@ class RPN
 		RPN(RPN const & copy);
 		RPN &operator=(RPN const & obj);
 
-		void separate(std::string line);
-		void displayStack();
-		void calculate();
+		void calculate(std::string line);
 };
 
 #endif 

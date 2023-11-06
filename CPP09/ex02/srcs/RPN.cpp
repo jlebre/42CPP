@@ -1,32 +1,32 @@
-#include "RPN.hpp"
+#include "PmergeMe.hpp"
 
-RPN::RPN()
+PmergeMe::PmergeMe()
 {
 	std::stack<char> _stack;
-	//std::cout << "RPN default constructor called\n";
+	//std::cout << "PmergeMe default constructor called\n";
 }
 
-RPN::RPN( RPN const & copy )
+PmergeMe::PmergeMe( PmergeMe const & copy )
 {
-	//std::cout << "RPN copy constructor called\n";
+	//std::cout << "PmergeMe copy constructor called\n";
 	*this = copy;
 }
 
-RPN::~RPN()
+PmergeMe::~PmergeMe()
 {
-	//std::cout << "RPN destructor called\n";
+	//std::cout << "PmergeMe destructor called\n";
 }
 
-RPN & RPN::operator=( RPN const & obj )
+PmergeMe & PmergeMe::operator=( PmergeMe const & obj )
 {
 	( void )obj;
-	//std::cout << "RPN assignation operator called\n";
+	//std::cout << "PmergeMe assignation operator called\n";
 
 	return *this;
 }
 
 // Reverse Polish Notation
-void RPN::calculate(std::string line)
+void PmergeMe::calculate(std::string line)
 {
 	std::string::iterator it = line.begin();
 	std::string::iterator ite = line.end();

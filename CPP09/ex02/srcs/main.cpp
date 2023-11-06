@@ -1,4 +1,4 @@
-#include "RPN.hpp"
+#include "PmergeMe.hpp"
 
 int main(int argc, char **argv) 
 {
@@ -8,7 +8,7 @@ int main(int argc, char **argv)
 		return 1;
 	}
 
-	RPN rpn;
+	PmergeMe rpn;
 	rpn.calculate(argv[1]);
 
 	return 0;
