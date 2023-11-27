@@ -57,20 +57,33 @@ void PmergeMe::merge(std::vector<int> input)
 	
 	std::cout << "Before: ";
 	printVector();
-	
-	
-	clock_t start = clock();
-	sortVector();
-	clock_t end = clock() - start;
-	std::cout << "After: ";
-	printVector();
-	std::cout << "Time to process a range of " << _size << " elements with std::vector -> " << (static_cast<double> (end) / (CLOCKS_PER_SEC)) * 1000000.0 << " us" << std::endl;
-	
-	start = clock();
-	sortList();
-	end = clock() - start;
-	printList();
-	std::cout << "Time to process a range of " << _size << " elements with std::list -> " << (static_cast<double> (end) / (CLOCKS_PER_SEC)) * 1000000.0 << " us" << std::endl;
+	{
+		clock_t start = clock();
+		sortVector();
+		clock_t end = clock() - start;
+		std::cout << "After: ";
+		printVector();
+		std::cout << "Time to process a range of " << _size << " elements with std::vector -> " << (static_cast<double> (end) / (CLOCKS_PER_SEC)) * 10.0 << " us" << std::endl;
+	}
+	{
+		clock_t start = clock();
+		sortList();
+		clock_t end = clock() - start;
+		//printList();
+		std::cout << "Time to process a range of " << _size << " elements with std::list -> " << (static_cast<double> (end) / (CLOCKS_PER_SEC)) * 10.0 << " us" << std::endl;
+	}
+	/*
+	for (size_t i = 0 ; i < _vector.size() ; i++)
+	{
+		if (_vector[i] != _list.front())
+		{
+			std::cout << "Error: " << _vector[i] << " != " << _list.front() << std::endl;
+			return ;
+		}
+		_list.pop_front();
+	}
+	std::cout << "Success" << std::endl;
+	*/
 }
 
 void PmergeMe::printVector()
@@ -80,8 +93,8 @@ void PmergeMe::printVector()
 		std::cout << "Empty vector" << std::endl;
 		return ;
 	}
-	int a = 0;
-	if (a == 1 && _size > 10)
+	int interruptor = 1; // 0 to print all elements
+	if (interruptor == 1 && _size > 10)
 	{
 		for (int i = 0; i < 10; i++)
 			std::cout << _vector[i] << " ";
@@ -120,6 +133,7 @@ void PmergeMe::printList()
 	std::cout << std::endl;
 }
 
+// Sorting with Ford-Johnson-Merge-Insertion Algorithm
 void PmergeMe::sortVector()
 {
 	if ( _vector.empty() || _sorted )
@@ -127,45 +141,47 @@ void PmergeMe::sortVector()
 	
 	int size = _vector.size();
 	std::vector<int> tmp;
-	std::vector<std::pair<int, int> > pairs;
+	std::vector<std::pair<int, int> > pares;
+	
 	if (size % 2 == 0)
 	{
-		for (int i = 0 ; i < size ; i += 2)
+		for (size_t i = 0; i < _vector.size(); i += 2)
 		{
 			if (_vector[i] > _vector[i + 1])
-				pairs.push_back(std::make_pair(_vector[i], _vector[i + 1]));
+				pares.push_back(std::make_pair(_vector[i], _vector[i + 1]));
 			else
-				pairs.push_back(std::make_pair(_vector[i + 1], _vector[i]));
+				pares.push_back(std::make_pair(_vector[i + 1], _vector[i]));
 		}
 	}
 	else
 	{
-		for (int i = 0 ; i < size - 1 ; i += 2)
+		for (size_t i = 0; i < _vector.size() - 1; i += 2)
 		{
 			if (_vector[i] > _vector[i + 1])
-				pairs.push_back(std::make_pair(_vector[i], _vector[i + 1]));
+				pares.push_back(std::make_pair(_vector[i], _vector[i + 1]));
 			else
-				pairs.push_back(std::make_pair(_vector[i + 1], _vector[i]));
+				pares.push_back(std::make_pair(_vector[i + 1], _vector[i]));
 		}
 		tmp.push_back(_vector.back());
 	}
-	
-	for (size_t i = 0; i < pairs.size(); i++)
-		tmp.insert(std::lower_bound(tmp.begin(), tmp.end(), pairs[i].first), pairs[i].first);
-	for (size_t i = 0; i < pairs.size(); i++)
-		tmp.insert(std::lower_bound(tmp.begin(), tmp.end(), pairs[i].second), pairs[i].second);
-	_vector.clear();
+
+	for (size_t i = 0; i < pares.size(); i++)
+		tmp.insert(std::lower_bound(tmp.begin(), tmp.end(), pares[i].first), pares[i].first);
+
+	for (size_t i = 0; i < pares.size(); i++)
+		tmp.insert(std::lower_bound(tmp.begin(), tmp.end(), pares[i].second), pares[i].second);
 	_vector = tmp;
 }
+
 
 void PmergeMe::sortList()
 {
 	if ( _list.empty() || _sorted )
 		return ;
-	
-	int size = _list.size();
+
+	int size = _vector.size();
 	std::list<int> tmp;
-	std::list<std::pair<int, int> > pairs;
+	std::list<std::pair<int, int> > pares;
 	if (size % 2 == 0)
 	{
 		for (std::list<int>::iterator it = _list.begin(); it != _list.end(); it++)
@@ -174,11 +190,11 @@ void PmergeMe::sortList()
 			{
 				if (*it > *(--it))
 				{
-					pairs.push_back(std::make_pair(*(++it), *(--it)));
+					pares.push_back(std::make_pair(*(++it), *(--it)));
 					it++;
 				}
 				else
-					pairs.push_back(std::make_pair(*it, *(++it)));
+					pares.push_back(std::make_pair(*it, *(++it)));
 			}
 		}
 	}
@@ -190,23 +206,21 @@ void PmergeMe::sortList()
 			{
 				if (*it > *(--it))
 				{
-					pairs.push_back(std::make_pair(*(++it), *(--it)));
+					pares.push_back(std::make_pair(*(++it), *(--it)));
 					it++;
 				}
 				else
-					pairs.push_back(std::make_pair(*it, *(++it)));
+					pares.push_back(std::make_pair(*it, *(++it)));
 			}
 		}
 		tmp.push_back(_list.back());
 	}
-	
-	for (std::list<std::pair<int,int> >::iterator it = pairs.begin(); it != pairs.end(); it++)
+
+	for (std::list<std::pair<int,int> >::iterator it = pares.begin(); it != pares.end(); it++)
 		tmp.insert(std::lower_bound(tmp.begin(), tmp.end(), it->first), it->first);
 
-	for (std::list<std::pair<int,int> >::iterator it = pairs.begin(); it != pairs.end(); it++)
+	for (std::list<std::pair<int,int> >::iterator it = pares.begin(); it != pares.end(); it++)
 		tmp.insert(std::lower_bound(tmp.begin(), tmp.end(), it->second), it->second);
-	
-	_list.clear();
 	_list = tmp;
 }
 

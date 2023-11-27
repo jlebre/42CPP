@@ -44,7 +44,18 @@ a:
 
 test:
 	@make re
+	@echo
 	@./PmergeMe 3 5 9 7 4
+	@echo
+	@./PmergeMe 3 5 9 7 4 1 2 6 8 0
+	@echo
 	@./PmergeMe `shuf -i 1-100000 -n 3000 | tr "\n" " "`
+	@echo
+	@./PmergeMe 0 5 6 -8 18
+	@echo
+	@./PmergeMe 5 5 5 5 5 5
+	@echo
+	@./PmergeMe "28" "396" "48" "5" "11"
+
 
 .PHONY: all clean fclean re a test
