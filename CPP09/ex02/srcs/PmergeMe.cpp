@@ -39,7 +39,8 @@ int PmergeMe::check(std::vector<int> input)
 	{
 		if (input[i] < 0)
 		{
-			std::cout << "Negative number or invalid character: " << input[i] << std::endl;
+			std::cout << "Error\n";
+			//std::cout << "Negative number or invalid character: " << input[i] << std::endl;
 			return 0;
 		}
 	}
@@ -63,14 +64,14 @@ void PmergeMe::merge(std::vector<int> input)
 		clock_t end = clock() - start;
 		std::cout << "After: ";
 		printVector();
-		std::cout << "Time to process a range of " << _size << " elements with std::vector -> " << (static_cast<double> (end) / (CLOCKS_PER_SEC)) * 10.0 << " us" << std::endl;
+		std::cout << "Time to process a range of " << _size << " elements with std::vector -> " << (static_cast<double> (end) / (CLOCKS_PER_SEC)) * 100.00 << " us" << std::endl;
 	}
 	{
 		clock_t start = clock();
 		sortList();
 		clock_t end = clock() - start;
 		//printList();
-		std::cout << "Time to process a range of " << _size << " elements with std::list -> " << (static_cast<double> (end) / (CLOCKS_PER_SEC)) * 10.0 << " us" << std::endl;
+		std::cout << "Time to process a range of " << _size << " elements with std::list -> " << (static_cast<double> (end) / (CLOCKS_PER_SEC)) * 100.00 << " us" << std::endl;
 	}
 	/*
 	for (size_t i = 0 ; i < _vector.size() ; i++)
@@ -90,7 +91,7 @@ void PmergeMe::printVector()
 {
 	if (_vector.empty())
 	{
-		std::cout << "Empty vector" << std::endl;
+		std::cout << "Error: Empty vector" << std::endl;
 		return ;
 	}
 	int interruptor = 1; // 0 to print all elements
@@ -112,7 +113,7 @@ void PmergeMe::printList()
 {
 	if (_list.empty())
 	{
-		std::cout << "Empty list" << std::endl;
+		std::cout << "Error: Empty list" << std::endl;
 		return ;
 	}
 	int a = 0;
