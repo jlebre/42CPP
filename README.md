@@ -17,16 +17,16 @@ This project is part of the **42 curriculum**, covering modern C++ development p
 
 This repository contains the following modules:
 
-- [**Module 00**](./module_00): Basics of C++ (namespaces, I/O streams, classes, member functions, and the Orthodox Canonical Form).
-- [**Module 01**](./module_01): Memory allocation, references, pointers, and file handling.
-- [**Module 02**](./module_02): Ad-hoc polymorphism, operator overloading, and the `Fixed` class.
-- [**Module 03**](./module_03): Inheritance in C++.
-- [**Module 04**](./module_04): Abstract classes and interfaces (pure virtual functions).
-- [**Module 05**](./module_05): Exception handling.
-- [**Module 06**](./module_06): Casts in C++.
-- [**Module 07**](./module_07): Templates in C++.
-- [**Module 08**](./module_08): The Standard Template Library (STL).
-- [**Module 09**](./module_09): Containers and algorithms.
+- [**Module 00**](./CPP00): Basics of C++ (namespaces, I/O streams, classes, member functions, and the Orthodox Canonical Form).
+- [**Module 01**](./CPP01): Memory allocation, references, pointers, and file handling.
+- [**Module 02**](./CPP02): Ad-hoc polymorphism, operator overloading, and the `Fixed` class.
+- [**Module 03**](./CPP03): Inheritance in C++.
+- [**Module 04**](./CPP04): Abstract classes and interfaces (pure virtual functions).
+- [**Module 05**](./CPP05): Exception handling.
+- [**Module 06**](./CPP06): Casts in C++.
+- [**Module 07**](./CPP07): Templates in C++.
+- [**Module 08**](./CPP08): The Standard Template Library (STL).
+- [**Module 09**](./CPP09): Containers and algorithms.
 
 Each module contains multiple exercises, incrementally increasing in complexity.
 
