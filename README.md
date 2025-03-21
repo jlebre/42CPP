@@ -32,33 +32,6 @@ Each module contains multiple exercises, incrementally increasing in complexity.
 
 ---
 
-## 🚀 How to Use
-
-### 1️⃣ Clone the Repository
-```bash
-git clone https://github.com/jlebre/42CPP.git
-cd 42CPP
-```
-
-### 2️⃣ Navigate to a Module
-```bash
-cd module_00
-```
-
-### 3️⃣ Compile the Code
-```bash
-make
-```
-
-### 4️⃣ Run the Program
-```bash
-./program_name
-```
-
-Each module has its own `Makefile` for easier compilation.
-
----
-
 ## 🎯 Learning Objectives
 
 ✅ Understand object-oriented programming principles in C++.
